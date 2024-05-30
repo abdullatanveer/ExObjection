@@ -273,56 +273,7 @@ router.delete("/deleteProduct/:id",async(req,res)=>{
 
 
  
-
-// router.put('/createProductReview', isAuthenticated,async (req, res, next) => {
-//   try {
-//     const { rating, comment, productId } = req.body;
-
-//     // Construct the review object
-//     const review = {
-//       rating: Number(rating),
-//       comment,
-//     };
-
-//     // Find the product by ID
-//     const product = await Product.query().findById(productId);
-
-//     // Check if the user has already reviewed the product
-//     const isReviewed = product.reviews.find((rev) => rev.user === req.user.id);
-
-//     // Update the existing review or add a new one
-//     if (isReviewed) {
-//       product.reviews.forEach((rev) => {
-//         if (rev.user === req.user.id) {
-//           rev.rating = rating;
-//           rev.comment = comment;
-//         }
-//       });
-//     } else {
-//       // Add the new review
-//       review.user = req.user.id;
-//       product.reviews.push(review);
-//       product.numOfReviews = product.reviews.length;
-//     }
-
-//     // Calculate the average rating
-//     let avg = 0;
-//     product.reviews.forEach((rev) => {
-//       avg += rev.rating;
-//     });
-//     product.ratings = avg / product.reviews.length;
-
-//     // Save the updated product
-//     await product.$query().patch(product);
-
-//     res.status(200).json({
-//       success: true,
-//     });
-//   } catch (error) {
-//     console.error('Error creating product review:', error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
+ 
 
 router.put('/createProductReview', isAuthenticated, async (req, res, next) => {
     try {
